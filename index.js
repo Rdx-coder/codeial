@@ -6,14 +6,19 @@ const express = require('express');
    
     const port = 5555;
 
+    const expresslayouts= require("express-ejs-layouts");
+
+    app.use(expresslayouts);
+
+    app.use(express.static('./assets'));
 //use express router
 
 app.use('/',require('./routes'));
 
 //set up the view engine
-app.use("view engine","ejs");
+app.set('view engine','ejs');
 
-app.set("views","./views");
+app.set('views','./views');
 
 
     app.listen(port,function(err){
@@ -30,3 +35,4 @@ app.set("views","./views");
         console.log(`Server is running i the port : ${port}`);
     
     });
+    
