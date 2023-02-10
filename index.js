@@ -1,7 +1,8 @@
   
   const { application } = require('express');
 const express = require('express');
-   
+   const cookieparser = require('cookie-parser');
+
     const app = express();
    
     const port = 5555;
@@ -12,6 +13,10 @@ const { set } = require('mongoose');
 
 
     const db = require('./config/mongoose');
+
+    app.use(express.urlencoded());
+    
+    app.use(cookieparser());
 
     app.use(expresslayouts);
 
